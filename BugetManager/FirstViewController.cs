@@ -25,12 +25,11 @@ namespace BugetManager
 
 		partial void UIBarButtonItem138_Activated(UIBarButtonItem sender)
 		{
-
+			//Menu list
 
 			var alert = UIAlertController.Create("Budget Menu", "Choose one action you need", UIAlertControllerStyle.ActionSheet);
    
 			if (alert.PopoverPresentationController != null)
-     
 				alert.PopoverPresentationController.BarButtonItem = sender as UIBarButtonItem;  
 
 			alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Cancel, null));
