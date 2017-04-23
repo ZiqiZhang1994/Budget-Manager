@@ -122,6 +122,7 @@
     <Compile Include="AddCostViewController.designer.cs">
       <DependentUpon>AddCostViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="BugetSimulatorModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
