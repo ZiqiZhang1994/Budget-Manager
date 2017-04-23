@@ -123,6 +123,7 @@
       <DependentUpon>AddCostViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="BugetSimulatorModel.cs" />
+    <Compile Include="Calculation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
