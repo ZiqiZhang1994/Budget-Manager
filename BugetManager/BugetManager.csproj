@@ -124,6 +124,9 @@
     </Compile>
     <Compile Include="BugetSimulatorModel.cs" />
     <Compile Include="Calculation.cs" />
+    <Compile Include="Cost.cs" />
+    <Compile Include="Budget.cs" />
+    <Compile Include="CostList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
