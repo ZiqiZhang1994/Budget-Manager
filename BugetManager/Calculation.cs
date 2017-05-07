@@ -5,7 +5,10 @@ namespace BugetManager
 	{
 		public Calculation()
 		{
-			
+
+
+
+
 		}
 	}
 }

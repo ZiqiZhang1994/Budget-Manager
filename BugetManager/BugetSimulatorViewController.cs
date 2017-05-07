@@ -9,5 +9,7 @@ namespace BugetManager
         public BugetSimulatorViewController (IntPtr handle) : base (handle)
         {
         }
+
+
     }
 }

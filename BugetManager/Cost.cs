@@ -6,5 +6,6 @@ namespace BugetManager
 		public Cost()
 		{
 		}
+
 	}
 }
