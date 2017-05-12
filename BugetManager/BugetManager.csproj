@@ -127,6 +127,7 @@
     <Compile Include="Cost.cs" />
     <Compile Include="CostList.cs" />
     <Compile Include="Budget.cs" />
+    <Compile Include="Database_interaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

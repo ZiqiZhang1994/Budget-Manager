@@ -14,8 +14,47 @@ namespace BugetManager
     [Register ("AddCostViewController")]
     partial class AddCostViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField lblcost { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField lbldetails { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField lblname { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField lbltype { get; set; }
+
+        [Action ("UIButton118_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void UIButton118_TouchUpInside (UIKit.UIButton sender);
+
         void ReleaseDesignerOutlets ()
         {
+            if (lblcost != null) {
+                lblcost.Dispose ();
+                lblcost = null;
+            }
+
+            if (lbldetails != null) {
+                lbldetails.Dispose ();
+                lbldetails = null;
+            }
+
+            if (lblname != null) {
+                lblname.Dispose ();
+                lblname = null;
+            }
+
+            if (lbltype != null) {
+                lbltype.Dispose ();
+                lbltype = null;
+            }
         }
     }
 }
