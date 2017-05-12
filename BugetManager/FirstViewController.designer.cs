@@ -17,6 +17,10 @@ namespace BugetManager
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIBarButtonItem138_Activated (UIKit.UIBarButtonItem sender);
 
+        [Action ("UIButton69_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void UIButton69_TouchUpInside (UIKit.UIButton sender);
+
         void ReleaseDesignerOutlets ()
         {
         }

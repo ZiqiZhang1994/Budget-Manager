@@ -25,16 +25,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69">
-                                <rect key="frame" x="250" y="192" width="102" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69" misplaced="YES">
+                                <rect key="frame" x="149" y="186" width="102" height="30"/>
                                 <state key="normal" title="Set Budget">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="UIButton69_TouchUpInside:" destination="9pv-A4-QxB" id="369" eventType="touchUpInside"/>
+                                </connections>
+                                <constraints>
+                                    <constraint id="392" firstItem="69" firstAttribute="height" constant="30"/>
+                                    <constraint id="393" firstItem="69" firstAttribute="width" constant="102"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="392"/>
+                                        <exclude reference="393"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="392"/>
+                                        <include reference="393"/>
+                                    </mask>
+                                </variation>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70">
-                                <rect key="frame" x="97" y="230" width="406" height="286"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70" misplaced="YES">
+                                <rect key="frame" x="4" y="237" width="392" height="286"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This Month's Buget: 40800" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77">
                                         <rect key="frame" x="45" y="20" width="341" height="21"/>
@@ -72,10 +89,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint id="395" firstItem="70" firstAttribute="height" constant="286"/>
+                                    <constraint id="403" firstItem="70" firstAttribute="width" constant="392"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="395"/>
+                                        <exclude reference="403"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="395"/>
+                                        <include reference="403"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="135">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="135" misplaced="YES">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Menu" id="138">
                                         <connections>
@@ -91,11 +123,31 @@
                                 <exclude reference="60"/>
                                 <exclude reference="67"/>
                             </mask>
+                            <mask key="constraints">
+                                <exclude reference="394"/>
+                                <exclude reference="398"/>
+                                <exclude reference="401"/>
+                                <exclude reference="402"/>
+                            </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="60"/>
                                 <include reference="67"/>
+                            </mask>
+                        </variation>
+                        <constraints>
+                            <constraint id="394" firstItem="70" firstAttribute="top" secondItem="69" secondAttribute="bottom" constant="21"/>
+                            <constraint id="398" firstItem="69" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="166"/>
+                            <constraint id="401" firstItem="69" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX"/>
+                            <constraint id="402" firstItem="70" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX"/>
+                        </constraints>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="394"/>
+                                <include reference="398"/>
+                                <include reference="401"/>
+                                <include reference="402"/>
                             </mask>
                         </variation>
                     </view>
@@ -187,7 +239,7 @@
         <!--Add Cost View Controller-->
         <scene sceneID="96">
             <objects>
-                <viewController id="97" customClass="AddCostViewController" sceneMemberID="viewController">
+                <viewController id="97" customClass="AddCostViewController" sceneMemberID="viewController" storyboardIdentifier="AddCostController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="94"/>
                         <viewControllerLayoutGuide type="bottom" id="95"/>
@@ -265,7 +317,7 @@
                                     <action selector="UIButton118_TouchUpInside:" destination="97" id="151" eventType="touchUpInside"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="152" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="152" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="211" y="371" width="178" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="332704801.65417802">
@@ -280,6 +332,7 @@
                         <outlet property="lbltype" destination="107" id="name-outlet-107"/>
                         <outlet property="lblname" destination="108" id="name-outlet-108"/>
                         <outlet property="lbldetails" destination="109" id="name-outlet-109"/>
+                        <outlet property="date_times" destination="152" id="name-outlet-152"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -287,7 +340,4 @@
             <point key="canvasLocation" x="-775" y="554"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Second" width="16" height="16"/>
-    </resources>
 </document>

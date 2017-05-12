@@ -16,6 +16,10 @@ namespace BugetManager
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIDatePicker date_times { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField lblcost { get; set; }
 
         [Outlet]
@@ -36,6 +40,11 @@ namespace BugetManager
 
         void ReleaseDesignerOutlets ()
         {
+            if (date_times != null) {
+                date_times.Dispose ();
+                date_times = null;
+            }
+
             if (lblcost != null) {
                 lblcost.Dispose ();
                 lblcost = null;

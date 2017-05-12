@@ -12,5 +12,9 @@ namespace BugetManager
 		{
 			//addto database using cost
 		}
+		public void AddBudget(Budget budget)
+		{
+			//add to database 
+		}
 	}
 }
