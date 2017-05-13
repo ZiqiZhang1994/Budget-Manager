@@ -15,6 +15,22 @@ namespace BugetManager
 		{
 			base.ViewDidLoad();
 			// Perform any additional setup after loading the view, typically from a nib.
+			Database_interaction db = new Database_interaction();
+
+			Budget budget = db.GetBudget(DateTime.Now);
+			float totalcost = db.GetTotalCostMonth(DateTime.Now);
+			if (budget != null)
+			{
+				lblmonth.Text = "This Month's Budget: " + budget.BudgetAmount.ToString();
+				lblRemaining.Text = "Remaining Budget: " + (budget.BudgetAmount - totalcost).ToString();
+				lblTotalCost.Text = "Total Cost This Month: " + totalcost.ToString();
+			}
+			else
+			{
+				lblmonth.Text = "This Month's Budget: Not Set";
+				lblRemaining.Text = "Remaining Budget: 0"; 
+				lblTotalCost.Text = "Total Cost This Month: 0";
+			}
 		}
 
 		public override void DidReceiveMemoryWarning()

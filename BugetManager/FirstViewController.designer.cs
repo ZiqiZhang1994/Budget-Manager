@@ -13,6 +13,22 @@ namespace BugetManager
     [Register ("FirstViewController")]
     partial class FirstViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblHighest { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblmonth { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblRemaining { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblTotalCost { get; set; }
+
         [Action ("UIBarButtonItem138_Activated:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIBarButtonItem138_Activated (UIKit.UIBarButtonItem sender);
@@ -23,6 +39,25 @@ namespace BugetManager
 
         void ReleaseDesignerOutlets ()
         {
+            if (lblHighest != null) {
+                lblHighest.Dispose ();
+                lblHighest = null;
+            }
+
+            if (lblmonth != null) {
+                lblmonth.Dispose ();
+                lblmonth = null;
+            }
+
+            if (lblRemaining != null) {
+                lblRemaining.Dispose ();
+                lblRemaining = null;
+            }
+
+            if (lblTotalCost != null) {
+                lblTotalCost.Dispose ();
+                lblTotalCost = null;
+            }
         }
     }
 }
