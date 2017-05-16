@@ -113,9 +113,9 @@
     <Compile Include="ReportViewController.designer.cs">
       <DependentUpon>ReportViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThisMonthViewController_.cs" />
+    <Compile Include="ThisMonthViewController.cs" />
     <Compile Include="ThisMonthViewController_.designer.cs">
-      <DependentUpon>ThisMonthViewController_.cs</DependentUpon>
+      <DependentUpon>ThisMonthViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="BugetSimulatorViewController.cs" />
     <Compile Include="BugetSimulatorViewController.designer.cs">
@@ -131,6 +131,12 @@
     <Compile Include="CostList.cs" />
     <Compile Include="Budget.cs" />
     <Compile Include="Database_interaction.cs" />
+    <Compile Include="CostManager.cs" />
+    <Compile Include="CostResouce.cs" />
+    <Compile Include="MonthTableCell.cs" />
+    <Compile Include="MonthTableCell.designer.cs">
+      <DependentUpon>MonthTableCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

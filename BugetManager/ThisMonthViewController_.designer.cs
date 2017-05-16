@@ -14,8 +14,16 @@ namespace BugetManager
     [Register ("ThisMonthViewController")]
     partial class ThisMonthViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView CostTable { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (CostTable != null) {
+                CostTable.Dispose ();
+                CostTable = null;
+            }
         }
     }
 }
