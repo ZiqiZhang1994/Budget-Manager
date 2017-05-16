@@ -16,7 +16,7 @@ namespace BugetManager
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIDatePicker date_times { get; set; }
+        UIKit.UIButton btnDate { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -34,15 +34,19 @@ namespace BugetManager
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField lbltype { get; set; }
 
+        [Action ("BtnDate_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void BtnDate_TouchUpInside (UIKit.UIButton sender);
+
         [Action ("UIButton118_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton118_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
-            if (date_times != null) {
-                date_times.Dispose ();
-                date_times = null;
+            if (btnDate != null) {
+                btnDate.Dispose ();
+                btnDate = null;
             }
 
             if (lblcost != null) {

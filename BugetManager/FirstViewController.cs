@@ -17,7 +17,7 @@ namespace BugetManager
 			// Perform any additional setup after loading the view, typically from a nib.
 			Database_interaction db = new Database_interaction();
 
-			Budget budget = db.GetBudget(DateTime.Now);
+			/*Budget budget = db.GetBudget(DateTime.Now);
 			float totalcost = db.GetTotalCostMonth(DateTime.Now);
 			if (budget != null)
 			{
@@ -30,7 +30,7 @@ namespace BugetManager
 				lblmonth.Text = "This Month's Budget: Not Set";
 				lblRemaining.Text = "Remaining Budget: 0"; 
 				lblTotalCost.Text = "Total Cost This Month: 0";
-			}
+			}*/
 		}
 
 		public override void DidReceiveMemoryWarning()
@@ -38,7 +38,7 @@ namespace BugetManager
 			base.DidReceiveMemoryWarning();
 			// Release any cached data, images, etc that aren't in use.
 		}
-
+		/*
 		partial void UIBarButtonItem138_Activated(UIBarButtonItem sender)
 		{
 			//Menu list
@@ -51,7 +51,7 @@ namespace BugetManager
 			alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Cancel, null));
 
 
-			alert.AddAction (UIAlertAction.Create ("Add Cost", UIAlertActionStyle.Default,null));
+			alert.AddAction(UIAlertAction.Create("Add Cost", UIAlertActionStyle.Default, (obj) => tryyyy()));
 
 			alert.AddAction (UIAlertAction.Create ("Cost Simulator", UIAlertActionStyle.Default,null));
 
@@ -60,11 +60,23 @@ namespace BugetManager
 			alert.AddAction (UIAlertAction.Create ("Edit", UIAlertActionStyle.Default, null));
 
 			PresentViewController(alert, animated: true, completionHandler: null);
+		}*/
+
+		private void tryyyy()
+		{
+
+
+			UIStoryboard board = UIStoryboard.FromName("Main", null);
+
+			UIViewController ctrl = (UIViewController)board.InstantiateViewController("AddCostController");
+
+			NavigationController.PushViewController (ctrl, true);
 		}
 
-
 		partial void UIButton69_TouchUpInside(UIButton sender)
-		{var textInputAlertController = UIAlertController.Create("Set Budget", "Put digit into the field", UIAlertControllerStyle.Alert);
+		{
+			
+			var textInputAlertController = UIAlertController.Create("Set Budget", "Put digit into the field", UIAlertControllerStyle.Alert);
 
 //Add Text Input
 textInputAlertController.AddTextField(textField => {
@@ -82,7 +94,7 @@ textInputAlertController.AddAction(cancelAction);
 				PresentViewController(textInputAlertController, true, null);
 
 
-
+		
 
 
 		}
@@ -107,6 +119,15 @@ lblTotalCost.Text = "Total Cost This Month: " + totalcost.ToString();
 				lblRemaining.Text = "Remaining Budget: 0"; 
 				lblTotalCost.Text = "Total Cost This Month: 0";
 			}
+		}
+
+		partial void UIButton1094_TouchUpInside(UIButton sender)
+		{
+			var acvc = UIApplication.SharedApplication.Windows;
+		//	this.NavigationController.PushViewController(acvc, true);
+			//NavigationController.ShowViewController(new AddCostViewController(), sender);
+
+
 		}
 	}
 }

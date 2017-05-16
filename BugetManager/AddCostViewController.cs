@@ -9,8 +9,12 @@ namespace BugetManager
 		private Database_interaction db_inter;
         public AddCostViewController (IntPtr handle) : base (handle)
         {
-			db_inter = new Database_interaction();
         }
+		public override void ViewDidLoad()
+		{
+			base.ViewDidLoad();
+
+		}
 
 partial void UIButton118_TouchUpInside(UIButton sender)
 		{
@@ -26,17 +30,20 @@ partial void UIButton118_TouchUpInside(UIButton sender)
 				return;
 			}
 			string type = lbltype.Text;
-			DateTime date = (System.DateTime)date_times.Date;
+			DateTime date = DateTime.Now;
 			string details = lbldetails.Text;
 
 
 			db_inter.AddCost(new Cost(name,cost,type,date,details));//add cost
 
-			var alert = new UIAlertView("", "The Cost has been added!!", null, "OK", null);
-			alert.Show();
+			//var alert = new UIAlertView("", "The Cost has been added!!", null, "OK", null);
+			//alert.Show();
 		}
 
 
+partial void BtnDate_TouchUpInside(UIButton sender)
+		{
+		}
 	}
 
 }

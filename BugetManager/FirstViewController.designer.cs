@@ -29,9 +29,9 @@ namespace BugetManager
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblTotalCost { get; set; }
 
-        [Action ("UIBarButtonItem138_Activated:")]
+        [Action ("UIButton1094_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void UIBarButtonItem138_Activated (UIKit.UIBarButtonItem sender);
+        partial void UIButton1094_TouchUpInside (UIKit.UIButton sender);
 
         [Action ("UIButton69_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]

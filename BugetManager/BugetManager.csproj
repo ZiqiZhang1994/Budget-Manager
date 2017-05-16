@@ -137,6 +137,10 @@
     <Compile Include="MonthTableCell.designer.cs">
       <DependentUpon>MonthTableCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="heyheyhey.cs" />
+    <Compile Include="heyheyhey.designer.cs">
+      <DependentUpon>heyheyhey.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
