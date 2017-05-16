@@ -73,13 +73,40 @@ textInputAlertController.AddTextField(textField => {
 			//Add Actions
 			Database_interaction db = new Database_interaction();
                 var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => Console.WriteLine("Cancel was Pressed"));
-			var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction =>db.AddBudget(new Budget(float.Parse(textInputAlertController.TextFields[0].Text),DateTime.Now)));
+			var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => buttonOKClicked(textInputAlertController));
 
 textInputAlertController.AddAction(cancelAction);
                 textInputAlertController.AddAction(okayAction);
 
 				//Present Alert
 				PresentViewController(textInputAlertController, true, null);
+
+
+
+
+
+		}
+		private void buttonOKClicked(UIAlertController textInputAlertController)
+		{
+			Database_interaction db = new Database_interaction();
+			db.AddBudget(new Budget(float.Parse(textInputAlertController.TextFields[0].Text), DateTime.Now));
+			      
+Budget budget = db.GetBudget(DateTime.Now);
+
+float totalcost = db.GetTotalCostMonth(DateTime.Now);
+			if (budget != null)
+			{
+				lblmonth.Text = "This Month's Budget: " + budget.BudgetAmount.ToString();
+				lblRemaining.Text = "Remaining Budget: " + (budget.BudgetAmount - totalcost).ToString();
+
+lblTotalCost.Text = "Total Cost This Month: " + totalcost.ToString();
+			}
+			else
+			{
+				lblmonth.Text = "This Month's Budget: Not Set";
+				lblRemaining.Text = "Remaining Budget: 0"; 
+				lblTotalCost.Text = "Total Cost This Month: 0";
+			}
 		}
 	}
 }

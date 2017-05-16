@@ -21,12 +21,12 @@ namespace BugetManager
 			{
 				con.Open();
 
-				string sqlQuery = "insert into SIT305Cost Values('"+cost.CostName+"',"+cost.CostValue+",'"+cost.CostType+"','"+cost.CostDate+"','"+cost.CostDetails+"')";
+				string sqlQuery = "insert into SIT305Cost Values('" + cost.CostName + "'," + cost.CostValue + ",'" + cost.CostType + "','" + cost.CostDate + "','" + cost.CostDetails + "')";
 				SqlCommand comm = new SqlCommand(sqlQuery, con);
 				SqlDataReader dr = comm.ExecuteReader();
 				dr.Close();
 			}
-			catch(Exception e)
+			catch (Exception e)
 			{
 				Console.WriteLine(e.Message);
 			}
@@ -66,13 +66,13 @@ namespace BugetManager
 			}
 			else
 			{
-string connectionString = "Data Source=148.72.232.166;Integrated Security=False;User ID=q512102932;password=334573gong;Connect Timeout=15;Encrypt=False;Packet Size=4096";
-SqlConnection con = new SqlConnection(connectionString);
+				string connectionString = "Data Source=148.72.232.166;Integrated Security=False;User ID=q512102932;password=334573gong;Connect Timeout=15;Encrypt=False;Packet Size=4096";
+				SqlConnection con = new SqlConnection(connectionString);
 				try
 				{
 					con.Open();
 
-					string sqlQuery = "Update SIT305Budget set BudgetAmount="+budget.BudgetAmount+" where BudgetTime='"+budget2.BudgetTime+"'";
+					string sqlQuery = "Update SIT305Budget set BudgetAmount=" + budget.BudgetAmount + " where BudgetTime='" + budget2.BudgetTime + "'";
 					SqlCommand comm = new SqlCommand(sqlQuery, con);
 					SqlDataReader dr = comm.ExecuteReader();
 					dr.Close();
@@ -90,13 +90,13 @@ SqlConnection con = new SqlConnection(connectionString);
 
 		}
 
-		private bool DetectBudget( Budget budget,out Budget budget2)
+		private bool DetectBudget(Budget budget, out Budget budget2)
 		{
-string connectionString = "Data Source=148.72.232.166;Integrated Security=False;User ID=q512102932;password=334573gong;Connect Timeout=15;Encrypt=False;Packet Size=4096";
-			SqlConnection con=null;
+			string connectionString = "Data Source=148.72.232.166;Integrated Security=False;User ID=q512102932;password=334573gong;Connect Timeout=15;Encrypt=False;Packet Size=4096";
+			SqlConnection con = null;
 			try
 			{
- con= new SqlConnection(connectionString);
+				con = new SqlConnection(connectionString);
 				con.Open();
 
 				string sqlQuery = "select * from SIT305Budget";
@@ -105,8 +105,8 @@ string connectionString = "Data Source=148.72.232.166;Integrated Security=False;
 				SqlDataReader dr = comm.ExecuteReader();
 				while (dr.Read())
 				{
-					float budgetvalue =float.Parse( dr.GetDouble(0).ToString());
-					DateTime budgettime =DateTime.Parse( dr.GetString(1));
+					float budgetvalue = float.Parse(dr.GetDouble(0).ToString());
+					DateTime budgettime = DateTime.Parse(dr.GetString(1));
 					string budgetdescription = dr.GetString(2);
 
 					if (budget.BudgetTime.Year == budgettime.Year && budget.BudgetTime.Month == budgettime.Month)
@@ -125,7 +125,7 @@ string connectionString = "Data Source=148.72.232.166;Integrated Security=False;
 
 				dr.Close();
 			}
-			catch(Exception e)
+			catch (Exception e)
 			{
 				Console.WriteLine(e.Message);
 			}
@@ -141,8 +141,8 @@ string connectionString = "Data Source=148.72.232.166;Integrated Security=False;
 		public List<Cost> GetCostList(DateTime time)
 		{
 			List<Cost> costlist = new List<Cost>();
-string connectionString = "Data Source=148.72.232.166;Integrated Security=False;User ID=q512102932;password=334573gong;Connect Timeout=15;Encrypt=False;Packet Size=4096";
-SqlConnection con = new SqlConnection(connectionString);
+			string connectionString = "Data Source=148.72.232.166;Integrated Security=False;User ID=q512102932;password=334573gong;Connect Timeout=15;Encrypt=False;Packet Size=4096";
+			SqlConnection con = new SqlConnection(connectionString);
 			try
 			{
 				con.Open();
@@ -173,15 +173,15 @@ SqlConnection con = new SqlConnection(connectionString);
 		}
 		public Budget GetBudget(DateTime time)
 		{
-string connectionString = "Data Source=148.72.232.166;Integrated Security=False;User ID=q512102932;password=334573gong;Connect Timeout=15;Encrypt=False;Packet Size=4096";
-SqlConnection con = new SqlConnection(connectionString);
+			string connectionString = "Data Source=148.72.232.166;Integrated Security=False;User ID=q512102932;password=334573gong;Connect Timeout=15;Encrypt=False;Packet Size=4096";
+			SqlConnection con = new SqlConnection(connectionString);
 			try
 			{
 				con.Open();
 
 				string sqlQuery = "select * from SIT305Budget";
-SqlCommand comm = new SqlCommand(sqlQuery, con);
-SqlDataReader dr = comm.ExecuteReader();
+				SqlCommand comm = new SqlCommand(sqlQuery, con);
+				SqlDataReader dr = comm.ExecuteReader();
 				while (dr.Read())
 				{
 					if (DateTime.Parse(dr.GetString(1)).Year == time.Year && DateTime.Parse(dr.GetString(1)).Month == time.Month)
@@ -195,7 +195,7 @@ SqlDataReader dr = comm.ExecuteReader();
 					}
 				}
 				dr.Close();
-				
+
 			}
 			catch (Exception e)
 			{
