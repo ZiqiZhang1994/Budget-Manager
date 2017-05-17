@@ -30,14 +30,14 @@ partial void UIButton118_TouchUpInside(UIButton sender)
 				return;
 			}
 			string type = lbltype.Text;
-			DateTime date = DateTime.Now;
+			DateTime date = DateTime.Now;//picker's time
 			string details = lbldetails.Text;
 
 
 			db_inter.AddCost(new Cost(name,cost,type,date,details));//add cost
 
-			//var alert = new UIAlertView("", "The Cost has been added!!", null, "OK", null);
-			//alert.Show();
+			var alert = new UIAlertView("", "The Cost has been added!!", null, "OK", null);
+			alert.Show();
 		}
 
 
