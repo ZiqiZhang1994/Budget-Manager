@@ -430,17 +430,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1998" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="0.0" y="273" width="400" height="326"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="304" width="400" height="295"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1999">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1999" reuseIdentifier="BudgetCell" style="IBUITableViewCellStyleValue1" textLabel="2046" detailTextLabel="2047">
                                         <rect key="frame" x="0.0" y="28" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1999" id="2000">
                                             <rect key="frame" x="0.0" y="0.0" width="400" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2046">
+                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2047">
+                                                    <rect key="frame" x="326" y="11" width="59" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections/>
                                     </tableViewCell>
@@ -468,7 +482,6 @@
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2013" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="0.0" y="164" width="394" height="132"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1994" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                         <rect key="frame" x="9" y="10" width="375" height="21"/>
@@ -507,7 +520,7 @@
                                         <exclude reference="1995"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <mask key="subviews">
                                         <include reference="1994"/>
                                         <include reference="1996"/>
@@ -528,6 +541,12 @@
                                 <exclude reference="2002"/>
                                 <exclude reference="2013"/>
                             </mask>
+                            <mask key="constraints">
+                                <exclude reference="2056"/>
+                                <exclude reference="2057"/>
+                                <exclude reference="2058"/>
+                                <exclude reference="2059"/>
+                            </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
@@ -540,7 +559,19 @@
                                 <include reference="2002"/>
                                 <include reference="2013"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="2056"/>
+                                <include reference="2057"/>
+                                <include reference="2058"/>
+                                <include reference="2059"/>
+                            </mask>
                         </variation>
+                        <constraints>
+                            <constraint id="2056" firstItem="1998" firstAttribute="trailing" secondItem="1987" secondAttribute="trailing"/>
+                            <constraint id="2057" firstItem="1998" firstAttribute="leading" secondItem="1987" secondAttribute="leading"/>
+                            <constraint id="2058" firstItem="1998" firstAttribute="top" secondItem="2013" secondAttribute="bottom" constant="8"/>
+                            <constraint id="2059" firstItem="1984" firstAttribute="top" secondItem="1998" secondAttribute="bottom" constant="1"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="btnSave" destination="2002" id="name-outlet-2002"/>
@@ -549,6 +580,8 @@
                         <outlet property="lblTotalCostPlanned" destination="1997" id="name-outlet-1997"/>
                         <outlet property="lblRemaningBudget" destination="1995" id="name-outlet-1995"/>
                         <outlet property="tablePlannedCost" destination="1998" id="name-outlet-1998"/>
+                        <outlet property="txtname" destination="1990" id="name-outlet-1990"/>
+                        <outlet property="txtValue" destination="1991" id="name-outlet-1991"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1988" userLabel="First Responder" sceneMemberID="firstResponder"/>
