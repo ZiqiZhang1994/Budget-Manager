@@ -64,5 +64,31 @@ namespace BugetManager
 			get { return BudgetItems; }
 
 		}
+
+
+		public override bool CanEditRow(UITableView tableView, NSIndexPath indexPath)
+
+		{
+
+			// Return false if you do not want the specified item to be editable.
+
+			return true;
+		}
+
+		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath indexPath)
+		{
+			if (editingStyle == UITableViewCellEditingStyle.Delete)
+			{
+				// Delete the row from the data source.
+
+				BudgetItems.RemoveAt(indexPath.Row);
+				hostViewCOntroller.DeleteRow(indexPath);
+			}
+			else if (editingStyle == UITableViewCellEditingStyle.Insert)
+			{
+				// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+			}
+
+		}
 	}
 }

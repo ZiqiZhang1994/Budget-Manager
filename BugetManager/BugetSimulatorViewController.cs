@@ -20,6 +20,8 @@ namespace BugetManager
 		}
 		public override void ViewDidLoad()
 		{
+
+
 			budget = db.GetBudget(DateTime.Now);
 			if (budget!= null)
 			{
@@ -55,7 +57,8 @@ var budgetManager = BudgetManagementController.Create();
 
 			using (var indexPath = NSIndexPath.FromRowSection(0, 0))
 				tablePlannedCost.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
-	}
+			
+		}
 
 
 
@@ -116,6 +119,7 @@ var budgetManager = BudgetManagementController.Create();
 
 		private void ReadPlannedCost()
 		{
+			tablePlannedCost.Source = null;
 string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 string filename = DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_PlannedCost.csv";
 string filepath = Path.Combine(path, filename);
@@ -143,6 +147,17 @@ string filepath = Path.Combine(path, filename);
 
 				lblTotalCostPlanned.Text = "Total Cost Planned: " + plannedtotalcost.ToString();
 			}
+		}
+		public	void DeleteRow(NSIndexPath indexPath)
+		{
+			plannedcostlist.RemoveAt(indexPath.Row);
+
+
+			tablePlannedCost.DeleteRows(new[] { indexPath }, UITableViewRowAnimation.Fade);
+
+
+
+
 		}
 	}
 }
