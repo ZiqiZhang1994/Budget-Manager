@@ -1,6 +1,7 @@
 using Foundation;
 using System;
 using UIKit;
+using System.IO;
 
 namespace BugetManager
 {
@@ -40,7 +41,15 @@ namespace BugetManager
 			//Add to Table cell
 
 
-			//update the 
+			//update the Label
+		}
+
+
+
+		partial void BtnSave_TouchUpInside(UIButton sender)
+		{
+			string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+			StreamReader sr=new StreamReader(
 		}
 	}
 }

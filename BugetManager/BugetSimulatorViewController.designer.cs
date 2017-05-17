@@ -34,6 +34,10 @@ namespace BugetManager
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblTotalCostThisMonth { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView tablePlannedCost { get; set; }
+
         [Action ("BtnSave_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void BtnSave_TouchUpInside (UIKit.UIButton sender);
@@ -67,6 +71,11 @@ namespace BugetManager
             if (lblTotalCostThisMonth != null) {
                 lblTotalCostThisMonth.Dispose ();
                 lblTotalCostThisMonth = null;
+            }
+
+            if (tablePlannedCost != null) {
+                tablePlannedCost.Dispose ();
+                tablePlannedCost = null;
             }
         }
     }
