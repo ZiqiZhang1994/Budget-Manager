@@ -119,27 +119,30 @@ var budgetManager = BudgetManagementController.Create();
 string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 string filename = DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_PlannedCost.csv";
 string filepath = Path.Combine(path, filename);
-using (StreamReader sr = new StreamReader(filepath))
+			if (File.Exists(filepath))
 			{
-				//get datafrom tableview and write to local file
-
-				string data = "";
-				while ((data = sr.ReadLine()) != null)
+				using (StreamReader sr = new StreamReader(filepath))
 				{
-					string[] data1 = data.Split(',');
-					plannedcostlist.Add(new Cost(data1[0], float.Parse(data1[1]), "", DateTime.Now, ""));
+					//get datafrom tableview and write to local file
+
+					string data = "";
+					while ((data = sr.ReadLine()) != null)
+					{
+						string[] data1 = data.Split(',');
+						plannedcostlist.Add(new Cost(data1[0], float.Parse(data1[1]), "", DateTime.Now, ""));
+					}
+
 				}
+				float plannedtotalcost = 0;
+				foreach (Cost c in plannedcostlist)
+				{
+					AddNewItem(c);
+					plannedtotalcost += c.CostValue;
+				}
+				lblRemaningBudget.Text = "Remaning Budget: " + (budget.BudgetAmount - totalcost - plannedtotalcost).ToString();
 
+				lblTotalCostPlanned.Text = "Total Cost Planned: " + plannedtotalcost.ToString();
 			}
-			float plannedtotalcost = 0;
-			foreach (Cost c in plannedcostlist)
-			{
-				AddNewItem(c);
-				plannedtotalcost += c.CostValue;
-			}
-			lblRemaningBudget.Text = "Remaning Budget: " + (budget.BudgetAmount - totalcost-plannedtotalcost).ToString();
-
-			lblTotalCostPlanned.Text = "Total Cost Planned: "+plannedtotalcost.ToString();
 		}
 	}
 }
