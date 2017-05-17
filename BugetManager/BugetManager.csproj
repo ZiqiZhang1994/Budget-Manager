@@ -137,9 +137,9 @@
     <Compile Include="MonthTableCell.designer.cs">
       <DependentUpon>MonthTableCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="heyheyhey.cs" />
-    <Compile Include="heyheyhey.designer.cs">
-      <DependentUpon>heyheyhey.cs</DependentUpon>
+    <Compile Include="tabBarViewController.cs" />
+    <Compile Include="tabBarViewController.designer.cs">
+      <DependentUpon>tabBarViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -4,15 +4,15 @@ using UIKit;
 
 namespace BugetManager
 {
-	public partial class heyheyhey : UITabBarController
-	{
-		public heyheyhey(IntPtr handle) : base(handle)
-		{
-		}
+    public partial class tabBarViewController : UITabBarController
+    {
+        public tabBarViewController (IntPtr handle) : base (handle)
+        {
+        }
 
 		partial void UIBarButtonItem1955_Activated(UIBarButtonItem sender)
 		{
-			var alert = UIAlertController.Create("Budget Menu", "Choose one action you need", UIAlertControllerStyle.ActionSheet);
+var alert = UIAlertController.Create("Budget Menu", "Choose one action you need", UIAlertControllerStyle.ActionSheet);
 
 			if (alert.PopoverPresentationController != null)
 				alert.PopoverPresentationController.BarButtonItem = sender as UIBarButtonItem;
@@ -20,9 +20,9 @@ namespace BugetManager
 			alert.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Cancel, null));
 
 
-			alert.AddAction(UIAlertAction.Create("Add Cost", UIAlertActionStyle.Default, (obj) => tryyy()));
+			alert.AddAction(UIAlertAction.Create("Add Cost", UIAlertActionStyle.Default, (obj) => AddCostFunc()));
 
-			alert.AddAction(UIAlertAction.Create("Cost Simulator", UIAlertActionStyle.Default, null));
+			alert.AddAction(UIAlertAction.Create("Cost Simulator", UIAlertActionStyle.Default, (obj) => SimulatorFunc()));
 
 			alert.AddAction(UIAlertAction.Create("Setup Warning", UIAlertActionStyle.Default, null));
 
@@ -30,15 +30,23 @@ namespace BugetManager
 
 			PresentViewController(alert, animated: true, completionHandler: null);
 		}
-
-		private void tryyy()
+		private void AddCostFunc()
 		{
 			UIStoryboard board = UIStoryboard.FromName("Main", null);
 
 			UIViewController ctrl = (UIViewController)board.InstantiateViewController("AddCostController");
 
 			NavigationController.PushViewController(ctrl, true);
+		
 		}
+		private void SimulatorFunc()
+		{
+UIStoryboard board = UIStoryboard.FromName("Main", null);
 
+UIViewController ctrl = (UIViewController)board.InstantiateViewController("BudgetSimulatorController");
+
+NavigationController.PushViewController(ctrl, true);
+		
+		}
 	}
 }

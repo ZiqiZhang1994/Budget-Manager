@@ -14,8 +14,56 @@ namespace BugetManager
     [Register ("BugetSimulatorViewController")]
     partial class BugetSimulatorViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnSave { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblMonthBudget { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblRemaningBudget { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblTotalCostPlanned { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblTotalCostThisMonth { get; set; }
+
+        [Action ("UIButton2001_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void UIButton2001_TouchUpInside (UIKit.UIButton sender);
+
         void ReleaseDesignerOutlets ()
         {
+            if (btnSave != null) {
+                btnSave.Dispose ();
+                btnSave = null;
+            }
+
+            if (lblMonthBudget != null) {
+                lblMonthBudget.Dispose ();
+                lblMonthBudget = null;
+            }
+
+            if (lblRemaningBudget != null) {
+                lblRemaningBudget.Dispose ();
+                lblRemaningBudget = null;
+            }
+
+            if (lblTotalCostPlanned != null) {
+                lblTotalCostPlanned.Dispose ();
+                lblTotalCostPlanned = null;
+            }
+
+            if (lblTotalCostThisMonth != null) {
+                lblTotalCostThisMonth.Dispose ();
+                lblTotalCostThisMonth = null;
+            }
         }
     }
 }

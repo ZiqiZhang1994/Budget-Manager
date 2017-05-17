@@ -11,8 +11,8 @@ using UIKit;
 
 namespace BugetManager
 {
-    [Register ("heyheyhey")]
-    partial class heyheyhey
+    [Register ("tabBarViewController")]
+    partial class tabBarViewController
     {
         [Action ("UIBarButtonItem1955_Activated:")]
         [GeneratedCode ("iOS Designer", "1.0")]
