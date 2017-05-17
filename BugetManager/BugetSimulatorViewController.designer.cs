@@ -34,6 +34,10 @@ namespace BugetManager
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblTotalCostThisMonth { get; set; }
 
+        [Action ("BtnSave_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void BtnSave_TouchUpInside (UIKit.UIButton sender);
+
         [Action ("UIButton2001_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton2001_TouchUpInside (UIKit.UIButton sender);
