@@ -119,7 +119,6 @@ var budgetManager = BudgetManagementController.Create();
 
 		private void ReadPlannedCost()
 		{
-			tablePlannedCost.Source = null;
 string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 string filename = DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_PlannedCost.csv";
 string filepath = Path.Combine(path, filename);
