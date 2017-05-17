@@ -21,9 +21,8 @@ namespace BugetManager
 		public override void ViewDidLoad()
 		{
 
-
 			budget = db.GetBudget(DateTime.Now);
-			if (budget!= null)
+			if (budget != null)
 			{
 				lblMonthBudget.Text = "This Month's Budget: " + budget.BudgetAmount.ToString();
 			}
@@ -31,7 +30,7 @@ namespace BugetManager
 			{
 				lblMonthBudget.Text = "This Month's Budget: NotSet.";
 			}
-			 totalcost = db.GetTotalCostMonth(DateTime.Now);
+			totalcost = db.GetTotalCostMonth(DateTime.Now);
 			lblTotalCostThisMonth.Text = "Total Cost This Month: " + totalcost.ToString();
 
 			lblRemaningBudget.Text = "Remaning Budget: " + (budget.BudgetAmount - totalcost).ToString();
@@ -39,13 +38,17 @@ namespace BugetManager
 			lblTotalCostPlanned.Text = "Total Cost Planned: Not Set";
 
 
-var budgetManager = BudgetManagementController.Create();
-						
-			tablePlannedCost.Source=dataSource = new BudgetResource(budgetManager.Budgets, this);
+			var budgetManager = BudgetManagementController.Create();
+
+			budgetManager.Budgets.Clear();
+ 
+			tablePlannedCost.Source = dataSource = new BudgetResource(budgetManager.Budgets, this);
 
 			ReadPlannedCost();
 
- 		}
+		}
+
+
 
 
 		void AddNewItem(Cost cost)
@@ -57,7 +60,7 @@ var budgetManager = BudgetManagementController.Create();
 
 			using (var indexPath = NSIndexPath.FromRowSection(0, 0))
 				tablePlannedCost.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
-			
+
 		}
 
 
@@ -77,11 +80,11 @@ var budgetManager = BudgetManagementController.Create();
 			{
 				totalplannedcost += c.CostValue;
 			}
-			lblTotalCostPlanned.Text ="Total Cost Planned: "+ totalplannedcost.ToString();
+			lblTotalCostPlanned.Text = "Total Cost Planned: " + totalplannedcost.ToString();
 
-			lblRemaningBudget.Text ="Remaining Budget: "+ (budget.BudgetAmount - totalcost - totalplannedcost).ToString();
+			lblRemaningBudget.Text = "Remaining Budget: " + (budget.BudgetAmount - totalcost - totalplannedcost).ToString();
 
-			if ((budget.BudgetAmount - totalcost - totalplannedcost+plannedcost.CostValue) > 0 && (budget.BudgetAmount - totalcost - totalplannedcost) <= 0)
+			if ((budget.BudgetAmount - totalcost - totalplannedcost + plannedcost.CostValue) > 0 && (budget.BudgetAmount - totalcost - totalplannedcost) <= 0)
 			{
 				UIAlertView alert = new UIAlertView()
 				{
@@ -91,7 +94,7 @@ var budgetManager = BudgetManagementController.Create();
 				alert.AddButton("OK");
 				alert.Show();
 
-			
+
 			}
 
 
@@ -119,9 +122,9 @@ var budgetManager = BudgetManagementController.Create();
 
 		private void ReadPlannedCost()
 		{
-string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-string filename = DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_PlannedCost.csv";
-string filepath = Path.Combine(path, filename);
+			string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+			string filename = DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_PlannedCost.csv";
+			string filepath = Path.Combine(path, filename);
 			if (File.Exists(filepath))
 			{
 				using (StreamReader sr = new StreamReader(filepath))
@@ -147,9 +150,9 @@ string filepath = Path.Combine(path, filename);
 				lblTotalCostPlanned.Text = "Total Cost Planned: " + plannedtotalcost.ToString();
 			}
 		}
-		public	void DeleteRow(NSIndexPath indexPath)
+		public void DeleteRow(NSIndexPath indexPath)
 		{
-			plannedcostlist.RemoveAt(indexPath.Row);
+			plannedcostlist.RemoveAt(plannedcostlist.Count - indexPath.Row + 1);
 
 
 			tablePlannedCost.DeleteRows(new[] { indexPath }, UITableViewRowAnimation.Fade);

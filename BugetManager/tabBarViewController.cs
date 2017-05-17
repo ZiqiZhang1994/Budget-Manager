@@ -4,15 +4,15 @@ using UIKit;
 
 namespace BugetManager
 {
-    public partial class tabBarViewController : UITabBarController
-    {
-        public tabBarViewController (IntPtr handle) : base (handle)
-        {
-        }
+	public partial class tabBarViewController : UITabBarController
+	{
+		public tabBarViewController(IntPtr handle) : base(handle)
+		{
+		}
 
 		partial void UIBarButtonItem1955_Activated(UIBarButtonItem sender)
 		{
-var alert = UIAlertController.Create("Budget Menu", "Choose one action you need", UIAlertControllerStyle.ActionSheet);
+			var alert = UIAlertController.Create("Budget Menu", "Choose one action you need", UIAlertControllerStyle.ActionSheet);
 
 			if (alert.PopoverPresentationController != null)
 				alert.PopoverPresentationController.BarButtonItem = sender as UIBarButtonItem;
@@ -24,7 +24,7 @@ var alert = UIAlertController.Create("Budget Menu", "Choose one action you need"
 
 			alert.AddAction(UIAlertAction.Create("Cost Simulator", UIAlertActionStyle.Default, (obj) => SimulatorFunc()));
 
-			alert.AddAction(UIAlertAction.Create("Setup Warning", UIAlertActionStyle.Default, null));
+			alert.AddAction(UIAlertAction.Create("Setup Warning", UIAlertActionStyle.Default, (obj) => Chart()));
 
 			alert.AddAction(UIAlertAction.Create("Edit", UIAlertActionStyle.Default, null));
 
@@ -37,16 +37,25 @@ var alert = UIAlertController.Create("Budget Menu", "Choose one action you need"
 			UIViewController ctrl = (UIViewController)board.InstantiateViewController("AddCostController");
 
 			NavigationController.PushViewController(ctrl, true);
-		
+
 		}
 		private void SimulatorFunc()
 		{
-UIStoryboard board = UIStoryboard.FromName("Main", null);
+			UIStoryboard board = UIStoryboard.FromName("Main", null);
 
-UIViewController ctrl = (UIViewController)board.InstantiateViewController("BudgetSimulatorController");
+			UIViewController ctrl = (UIViewController)board.InstantiateViewController("BudgetSimulatorController");
 
-NavigationController.PushViewController(ctrl, true);
-		
+			NavigationController.PushViewController(ctrl, true);
+
+		}
+
+		private void Chart()
+		{
+			UIStoryboard board = UIStoryboard.FromName("Main", null);
+
+			UIViewController ctrl = (UIViewController)board.InstantiateViewController("MyViewController");
+
+			NavigationController.PushViewController(ctrl, true);
 		}
 	}
 }

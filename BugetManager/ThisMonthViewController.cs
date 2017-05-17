@@ -17,6 +17,8 @@ namespace BugetManager
 			base.ViewDidLoad();
 
 
+
+
 			var costManager = CostManager.Create();
 
 			CostTable.Source = new CostResource(costManager.Costs, this);
