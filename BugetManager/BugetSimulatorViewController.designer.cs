@@ -38,6 +38,14 @@ namespace BugetManager
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITableView tablePlannedCost { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField txtname { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField txtValue { get; set; }
+
         [Action ("BtnSave_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void BtnSave_TouchUpInside (UIKit.UIButton sender);
@@ -76,6 +84,16 @@ namespace BugetManager
             if (tablePlannedCost != null) {
                 tablePlannedCost.Dispose ();
                 tablePlannedCost = null;
+            }
+
+            if (txtname != null) {
+                txtname.Dispose ();
+                txtname = null;
+            }
+
+            if (txtValue != null) {
+                txtValue.Dispose ();
+                txtValue = null;
             }
         }
     }

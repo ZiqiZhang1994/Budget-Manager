@@ -141,6 +141,8 @@
     <Compile Include="tabBarViewController.designer.cs">
       <DependentUpon>tabBarViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="BudgetManager.cs" />
+    <Compile Include="BudgetResource.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
