@@ -17,7 +17,8 @@ namespace BugetManager
 
 
 
-var costManager = CostManager.Create();
+
+			var costManager = CostManager.Create();
 
 			ReportTable.Source = new ReportResource(costManager.Costs, this);
 

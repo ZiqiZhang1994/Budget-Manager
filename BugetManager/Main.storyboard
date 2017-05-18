@@ -602,7 +602,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2602" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="0.0" y="20" width="400" height="433"/>
+                                <rect key="frame" x="0.0" y="66" width="400" height="387"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -612,9 +612,106 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2633" id="2634">
                                             <rect key="frame" x="0.0" y="0.0" width="400" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2646" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="20" y="20" width="60" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2650" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="20" y="77" width="60" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2652" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="88" y="20" width="292" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2653" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="88" y="77" width="292" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="2654" translatesAutoresizingMaskIntoConstraints="NO" enabled="NO">
+                                                    <rect key="frame" x="20" y="44" width="360" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </slider>
+                                            </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="2646"/>
+                                                    <exclude reference="2650"/>
+                                                    <exclude reference="2652"/>
+                                                    <exclude reference="2653"/>
+                                                    <exclude reference="2654"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="2655"/>
+                                                    <exclude reference="2656"/>
+                                                    <exclude reference="2665"/>
+                                                    <exclude reference="2666"/>
+                                                    <exclude reference="2667"/>
+                                                    <exclude reference="2668"/>
+                                                    <exclude reference="2669"/>
+                                                    <exclude reference="2670"/>
+                                                    <exclude reference="2671"/>
+                                                    <exclude reference="2672"/>
+                                                    <exclude reference="2673"/>
+                                                    <exclude reference="2674"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="2646"/>
+                                                    <include reference="2650"/>
+                                                    <include reference="2652"/>
+                                                    <include reference="2653"/>
+                                                    <include reference="2654"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="2655"/>
+                                                    <include reference="2656"/>
+                                                    <include reference="2665"/>
+                                                    <include reference="2666"/>
+                                                    <include reference="2667"/>
+                                                    <include reference="2668"/>
+                                                    <include reference="2669"/>
+                                                    <include reference="2670"/>
+                                                    <include reference="2671"/>
+                                                    <include reference="2672"/>
+                                                    <include reference="2673"/>
+                                                    <include reference="2674"/>
+                                                </mask>
+                                            </variation>
+                                            <constraints>
+                                                <constraint id="2655" firstItem="2634" firstAttribute="trailing" secondItem="2654" secondAttribute="trailing" constant="23"/>
+                                                <constraint id="2656" firstItem="2654" firstAttribute="leading" secondItem="2634" secondAttribute="leading" constant="22"/>
+                                                <constraint id="2665" firstItem="2646" firstAttribute="top" secondItem="2634" secondAttribute="top" constant="20"/>
+                                                <constraint id="2666" firstItem="2646" firstAttribute="leading" secondItem="2634" secondAttribute="leading" constant="20"/>
+                                                <constraint id="2667" firstItem="2634" firstAttribute="bottom" secondItem="2650" secondAttribute="bottom" constant="20"/>
+                                                <constraint id="2668" firstItem="2650" firstAttribute="leading" secondItem="2634" secondAttribute="leading" constant="20"/>
+                                                <constraint id="2669" firstItem="2654" firstAttribute="top" secondItem="2646" secondAttribute="bottom" constant="3"/>
+                                                <constraint id="2670" firstItem="2650" firstAttribute="top" secondItem="2654" secondAttribute="bottom" constant="2"/>
+                                                <constraint id="2671" firstItem="2634" firstAttribute="trailing" secondItem="2653" secondAttribute="trailing" constant="20"/>
+                                                <constraint id="2672" firstItem="2634" firstAttribute="bottom" secondItem="2653" secondAttribute="bottom" constant="20"/>
+                                                <constraint id="2673" firstItem="2634" firstAttribute="trailing" secondItem="2652" secondAttribute="trailing" constant="20"/>
+                                                <constraint id="2674" firstItem="2652" firstAttribute="top" secondItem="2634" secondAttribute="top" constant="20"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections/>
+                                        <connections>
+                                            <outlet property="type" destination="2652" id="name-outlet-2652"/>
+                                            <outlet property="total" destination="2653" id="name-outlet-2653"/>
+                                            <outlet property="progressBar" destination="2654" id="name-outlet-2654"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -623,12 +720,30 @@
                             <mask key="subviews">
                                 <exclude reference="2602"/>
                             </mask>
+                            <mask key="constraints">
+                                <exclude reference="2659"/>
+                                <exclude reference="2660"/>
+                                <exclude reference="2661"/>
+                                <exclude reference="2662"/>
+                            </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="2602"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="2659"/>
+                                <include reference="2660"/>
+                                <include reference="2661"/>
+                                <include reference="2662"/>
+                            </mask>
                         </variation>
+                        <constraints>
+                            <constraint id="2659" firstItem="2602" firstAttribute="top" secondItem="2473" secondAttribute="bottom" constant="46"/>
+                            <constraint id="2660" firstItem="2602" firstAttribute="trailing" secondItem="2477" secondAttribute="trailing"/>
+                            <constraint id="2661" firstItem="2602" firstAttribute="leading" secondItem="2477" secondAttribute="leading"/>
+                            <constraint id="2662" firstItem="2474" firstAttribute="top" secondItem="2602" secondAttribute="bottom" constant="98"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="2519"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

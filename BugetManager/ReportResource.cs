@@ -10,22 +10,27 @@ namespace BugetManager
 	{
 
 		List<Cost> CostItems;
-		List<ReportData> ReportItems;
+List<ReportData> ReportItems;
 		ReportProgressViewController hostViewCOntroller;
 		string cellIdentifier = "ReportCell";
+
+public ReportResource()
+{
+
+		}
 
 		public ReportResource(List<Cost> costs, ReportProgressViewController hostVC)
 		{
 			CostItems = costs;
-
+			ReportItems = CostTypeCollect();
 			hostViewCOntroller = hostVC;
 
 
 		}
 
-		private void CostTypeCollect()
+public List<ReportData> CostTypeCollect()
 		{
-			ReportItems = new List<ReportData>();
+			List<ReportData> tempItems = new List<ReportData>();
 			List<Cost> aTempList = new List<Cost>();
 			aTempList = CostItems;
 			List<Cost> bTempList = new List<Cost>();
@@ -44,8 +49,10 @@ namespace BugetManager
 				}
 				tempReport.CostType = a.CostType;
 				tempReport.CostValue = sum;
-				ReportItems.Add(tempReport);
+tempItems.Add(tempReport);
 			}
+
+			return tempItems;
 				
 		}
 
