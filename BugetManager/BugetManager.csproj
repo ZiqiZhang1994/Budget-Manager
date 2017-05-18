@@ -87,8 +87,14 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Services.Client" />
-    <Reference Include="Alliance.Charts">
-      <HintPath>..\..\..\..\Downloads\AllianceChart-2.0\lib\ios-unified\Alliance.Charts.dll</HintPath>
+    <Reference Include="Cross.Pie.iOS">
+      <HintPath>..\Components\Cross.Pie.iOS-1.0\lib\ios-unified\Cross.Pie.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="NGraphics">
+      <HintPath>..\packages\NGraphics.0.4.0\lib\Xamarin.iOS10\NGraphics.dll</HintPath>
+    </Reference>
+    <Reference Include="NGraphics.iOS">
+      <HintPath>..\packages\NGraphics.0.4.0\lib\Xamarin.iOS10\NGraphics.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -139,8 +145,22 @@
     <Compile Include="tabBarViewController.designer.cs">
       <DependentUpon>tabBarViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="BudgetManager.cs" />
+    <Compile Include="BudgetManagementController.cs" />
     <Compile Include="BudgetResource.cs" />
+    <Compile Include="Report.cs" />
+    <Compile Include="Report.designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressTableCell.cs" />
+    <Compile Include="ProgressTableCell.designer.cs">
+      <DependentUpon>ProgressTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProgressViewController.cs" />
+    <Compile Include="ReportProgressViewController.designer.cs">
+      <DependentUpon>ReportProgressViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportResource.cs" />
+    <Compile Include="ReportData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -148,6 +168,12 @@
     <Compile Include="FirstViewController.designer.cs">
       <DependentUpon>FirstViewController.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="Cross.Pie.iOS">
+      <Version>1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

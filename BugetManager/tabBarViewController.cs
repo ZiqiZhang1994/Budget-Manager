@@ -53,7 +53,7 @@ namespace BugetManager
 		{
 			UIStoryboard board = UIStoryboard.FromName("Main", null);
 
-			UIViewController ctrl = (UIViewController)board.InstantiateViewController("MyViewController");
+			UIViewController ctrl = (UIViewController)board.InstantiateViewController("Report");
 
 			NavigationController.PushViewController(ctrl, true);
 		}
