@@ -16,7 +16,7 @@ namespace BugetManager
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnDate { get; set; }
+        UIKit.UILabel datelable { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -34,9 +34,13 @@ namespace BugetManager
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField lbltype { get; set; }
 
-        [Action ("BtnDate_TouchUpInside:")]
+        [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void BtnDate_TouchUpInside (UIKit.UIButton sender);
+        UIKit.UIDatePicker MyDatePicker { get; set; }
+
+        [Action ("DateTimeChanger:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void DateTimeChanger (UIKit.UIDatePicker sender);
 
         [Action ("UIButton118_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -44,9 +48,9 @@ namespace BugetManager
 
         void ReleaseDesignerOutlets ()
         {
-            if (btnDate != null) {
-                btnDate.Dispose ();
-                btnDate = null;
+            if (datelable != null) {
+                datelable.Dispose ();
+                datelable = null;
             }
 
             if (lblcost != null) {
@@ -67,6 +71,11 @@ namespace BugetManager
             if (lbltype != null) {
                 lbltype.Dispose ();
                 lbltype = null;
+            }
+
+            if (MyDatePicker != null) {
+                MyDatePicker.Dispose ();
+                MyDatePicker = null;
             }
         }
     }

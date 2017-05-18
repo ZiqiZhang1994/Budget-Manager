@@ -10,12 +10,12 @@ namespace BugetManager
 	{
 
 		List<Cost> CostItems;
-List<ReportData> ReportItems;
+		List<ReportData> ReportItems;
 		ReportProgressViewController hostViewCOntroller;
 		string cellIdentifier = "ReportCell";
 
-public ReportResource()
-{
+		public ReportResource()
+		{
 
 		}
 
@@ -28,38 +28,37 @@ public ReportResource()
 
 		}
 
-public List<ReportData> CostTypeCollect()
+		public List<ReportData> CostTypeCollect()
 		{
-			List<ReportData> tempItems = new List<ReportData>();
-			List<Cost> aTempList = new List<Cost>();
-			aTempList = CostItems;
-			List<Cost> bTempList = new List<Cost>();
-			bTempList = CostItems;
-			foreach (Cost a in aTempList)
-			{
-				ReportData tempReport = new ReportData();
 
-				float sum = 0;
-				foreach (Cost b in bTempList)
+			List<ReportData> tempItems = new List<ReportData>();
+			Dictionary<string, float> typeDiction = new Dictionary<string, float>();
+			foreach (Cost a in CostItems)
+			{
+				if (typeDiction.ContainsKey(a.CostType) == false)
 				{
-					if (a == b)
-					{
-						sum += b.CostValue;
-					}
+					typeDiction.Add(a.CostType, a.CostValue);
 				}
-				tempReport.CostType = a.CostType;
-				tempReport.CostValue = sum;
-tempItems.Add(tempReport);
+				else
+				{
+					typeDiction[a.CostType] += a.CostValue;
+				}
+			}
+			foreach (KeyValuePair<string, float> c in typeDiction)
+			{
+				ReportData tempdata = new ReportData(c.Key, c.Value);
+				tempItems.Add(tempdata);
 			}
 
+
 			return tempItems;
-				
+
 		}
 
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
-                        CostTypeCollect();
+			CostTypeCollect();
 			return ReportItems.Count;
 		}
 

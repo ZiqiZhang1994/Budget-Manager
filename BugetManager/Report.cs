@@ -13,7 +13,6 @@ namespace BugetManager
 		{
 		}
 				CrossPie Pie { get; set; }
-		UITableViewSource tempSource;
 List<Cost> tempList = new List<Cost>();
 		public override void ViewDidLoad()
 		{
@@ -32,26 +31,23 @@ var costManager = CostManager.Create();
 		public List<ReportData> CostTypeCollect()
 		{
 			
-			List<ReportData> tempItems = new List<ReportData>();
-			List<Cost> aTempList = new List<Cost>();
-			aTempList = tempList;
-			List<Cost> bTempList = new List<Cost>();
-			bTempList = tempList;
-			foreach (Cost a in aTempList)
+List<ReportData> tempItems = new List<ReportData>();
+Dictionary<string, float> typeDiction = new Dictionary<string, float>();
+			foreach (Cost a in tempList)
 			{
-				ReportData tempReport = new ReportData();
-
-				float sum = 0;
-				foreach (Cost b in bTempList)
+				if (typeDiction.ContainsKey(a.CostType) == false)
 				{
-					if (a == b)
-					{
-						sum += b.CostValue;
-					}
+					typeDiction.Add(a.CostType, a.CostValue);
 				}
-				tempReport.CostType = a.CostType;
-				tempReport.CostValue = sum;
-				tempItems.Add(tempReport);
+				else
+				{
+					typeDiction[a.CostType] += a.CostValue;
+				}
+			}
+			foreach (KeyValuePair<string, float> c in typeDiction)
+			{
+				ReportData tempdata = new ReportData(c.Key, c.Value);
+tempItems.Add(tempdata);
 			}
 			return tempItems;
 		}
@@ -79,6 +75,15 @@ var costManager = CostManager.Create();
 
 
 			Pie.Update();
+
+						
+			Pie.ItemSelected += (object sender, PieItem e) => 
+			{
+				e.IsPull = !e.IsPull;
+				e.IsBold = e.IsPull;
+				Pie.Update();
+			};
+
 		}
 	}
 }
