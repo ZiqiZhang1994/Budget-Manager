@@ -17,6 +17,9 @@ namespace BugetManager
 			base.ViewDidLoad();
 
 
+			UIImage img = UIImage.FromFile("BackGround.png");
+			img = img.Scale(View.Frame.Size);
+			this.View.BackgroundColor = UIColor.FromPatternImage(img);
 			MyScroll.ContentSize = MyView.Frame.Size;
 			MyScroll.Scrolled += (sender, e) =>
 			{

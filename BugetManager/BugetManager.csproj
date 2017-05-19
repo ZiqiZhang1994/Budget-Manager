@@ -104,6 +104,9 @@
     <ImageAsset Include="Assets.xcassets\Second.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Second.imageset\vector.pdf" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_iphone7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-iOS5-6.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -178,6 +181,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\launchScreen.png" />
     <BundleResource Include="Resources\BackGround.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\icon_iphone7.png" />
+    <BundleResource Include="Resources\Icon-iOS5-6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

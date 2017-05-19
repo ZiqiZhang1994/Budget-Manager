@@ -28,6 +28,12 @@ namespace BugetManager
 
 			this.TabBarController.Title = "Budget";
 			this.TabBarItem.Title = "Budget";
+
+
+
+			UIImage img = UIImage.FromFile("BackGround.png");
+			img = img.Scale(View.Frame.Size);
+			this.View.BackgroundColor = UIColor.FromPatternImage(img);
 		}
 
 		private void InitialisingBudget()

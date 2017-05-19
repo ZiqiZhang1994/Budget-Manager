@@ -35,15 +35,21 @@ namespace BugetManager
 			if (budget != null)
 			{
 				lblMonthBudget.Text = "This Month's Budget: " + budget.BudgetAmount.ToString();
+			lblTotalCostThisMonth.Text = "Total Cost This Month: " + totalcost.ToString();
+
+			lblRemaningBudget.Text = "Remaning Budget: " + (budget.BudgetAmount - totalcost).ToString();
+
+lblTotalCostPlanned.Text = "Total Cost Planned: Not Set";
 			}
 			else
 			{
 				lblMonthBudget.Text = "This Month's Budget: NotSet.";
+				lblRemaningBudget.Text = "Remaning Budget: 0";
+
 			}
 			totalcost = db.GetTotalCostMonth(DateTime.Now);
 			lblTotalCostThisMonth.Text = "Total Cost This Month: " + totalcost.ToString();
 
-			lblRemaningBudget.Text = "Remaning Budget: " + (budget.BudgetAmount - totalcost).ToString();
 
 			lblTotalCostPlanned.Text = "Total Cost Planned: Not Set";
 
