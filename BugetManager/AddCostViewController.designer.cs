@@ -16,6 +16,10 @@ namespace BugetManager
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnSubmit { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel datelable { get; set; }
 
         [Outlet]
@@ -52,6 +56,11 @@ namespace BugetManager
 
         void ReleaseDesignerOutlets ()
         {
+            if (btnSubmit != null) {
+                btnSubmit.Dispose ();
+                btnSubmit = null;
+            }
+
             if (datelable != null) {
                 datelable.Dispose ();
                 datelable = null;

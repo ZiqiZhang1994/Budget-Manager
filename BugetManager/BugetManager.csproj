@@ -184,6 +184,7 @@
     <BundleResource Include="Resources\Icon.png" />
     <BundleResource Include="Resources\icon_iphone7.png" />
     <BundleResource Include="Resources\Icon-iOS5-6.png" />
+    <BundleResource Include="Resources\button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
