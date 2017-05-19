@@ -14,6 +14,8 @@ namespace BugetManager
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+			datelable.Text = DateTime.Now.Date.ToString();
+			lblcost.Placeholder = "Must Be Digit";
 
 		}
 
@@ -64,6 +66,23 @@ namespace BugetManager
 			tempDate = reference.AddSeconds(date.SecondsSinceReferenceDate);
 			datelable.Text = tempDate.ToString();
 		}
-	}
 
+
+
+
+
+		partial void KeyUpChanged(UITextField sender)
+		{
+			if (lblcost.Text != "")
+			{
+				char last = lblcost.Text[lblcost.Text.Length - 1];
+				if (char.IsDigit(last) == false)
+				{
+					lblcost.Text = lblcost.Text.Remove(lblcost.Text.Length - 1, 1);
+
+				}
+			}
+		}
+	}
 }
+

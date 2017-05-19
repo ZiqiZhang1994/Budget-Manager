@@ -1,6 +1,7 @@
 ﻿using System;
 
 using UIKit;
+using System.Threading;
 
 namespace BugetManager
 {
@@ -11,26 +12,55 @@ namespace BugetManager
 			// Note: this .ctor should not contain any initialization logic.
 		}
 
+		Thread loadBudgetThread;
+
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
 			// Perform any additional setup after loading the view, typically from a nib.
-			Database_interaction db = new Database_interaction();
+			lblmonth.Text = "Loading Budget...";
+			lblHighest.Text = "";
+			lblRemaining.Text = "";
+			lblTotalCost.Text = "";
 
-			Budget budget = db.GetBudget(DateTime.Now);
-			float totalcost = db.GetTotalCostMonth(DateTime.Now);
-			if (budget != null)
+			loadBudgetThread = new Thread(new ThreadStart(InitialisingBudget));
+			loadBudgetThread.Start();
+
+		}
+
+		private void InitialisingBudget()
+		{
+			Database_interaction db = new Database_interaction();
+			Budget budget = null;
+
+			do
 			{
-				lblmonth.Text = "This Month's Budget: " + budget.BudgetAmount.ToString();
-				lblRemaining.Text = "Remaining Budget: " + (budget.BudgetAmount - totalcost).ToString();
-				lblTotalCost.Text = "Total Cost This Month: " + totalcost.ToString();
-			}
-			else
-			{
-				lblmonth.Text = "This Month's Budget: Not Set";
-				lblRemaining.Text = "Remaining Budget: 0"; 
-				lblTotalCost.Text = "Total Cost This Month: 0";
-			}
+				budget = db.GetBudget(DateTime.Now);
+				float totalcost = db.GetTotalCostMonth(DateTime.Now);
+				InvokeOnMainThread(delegate
+				{
+					if (budget != null)
+					{
+						lblmonth.Text = "This Month's Budget: " + budget.BudgetAmount.ToString();
+						lblRemaining.Text = "Remaining Budget: " + (budget.BudgetAmount - totalcost).ToString();
+						lblTotalCost.Text = "Total Cost This Month: " + totalcost.ToString();
+					}
+					else
+					{
+						lblmonth.Text = "This Month's Budget: Not Set";
+						lblRemaining.Text = "Remaining Budget: 0";
+						lblTotalCost.Text = "Total Cost This Month: 0";
+					}
+				});
+
+				Thread.Sleep(10000);
+			} while (budget != null);
+
+		}
+		protected override void Dispose(bool disposing)
+		{
+			loadBudgetThread.Abort();
+			base.Dispose(disposing);
 		}
 
 		public override void DidReceiveMemoryWarning()
@@ -70,31 +100,32 @@ namespace BugetManager
 
 			UIViewController ctrl = (UIViewController)board.InstantiateViewController("AddCostController");
 
-			NavigationController.PushViewController (ctrl, true);
+			NavigationController.PushViewController(ctrl, true);
 		}
 
 		partial void UIButton69_TouchUpInside(UIButton sender)
 		{
-			
+
 			var textInputAlertController = UIAlertController.Create("Set Budget", "Put digit into the field", UIAlertControllerStyle.Alert);
 
-//Add Text Input
-textInputAlertController.AddTextField(textField => {
-                });
+			//Add Text Input
+			textInputAlertController.AddTextField(textField =>
+			{
+			});
 
 			//Add Actions
 			Database_interaction db = new Database_interaction();
-                var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => Console.WriteLine("Cancel was Pressed"));
+			var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => Console.WriteLine("Cancel was Pressed"));
 			var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => buttonOKClicked(textInputAlertController));
 
-textInputAlertController.AddAction(cancelAction);
-                textInputAlertController.AddAction(okayAction);
+			textInputAlertController.AddAction(cancelAction);
+			textInputAlertController.AddAction(okayAction);
 
-				//Present Alert
-				PresentViewController(textInputAlertController, true, null);
+			//Present Alert
+			PresentViewController(textInputAlertController, true, null);
 
 
-		
+
 
 
 		}
@@ -102,32 +133,25 @@ textInputAlertController.AddAction(cancelAction);
 		{
 			Database_interaction db = new Database_interaction();
 			db.AddBudget(new Budget(float.Parse(textInputAlertController.TextFields[0].Text), DateTime.Now));
-			      
-Budget budget = db.GetBudget(DateTime.Now);
 
-float totalcost = db.GetTotalCostMonth(DateTime.Now);
+			Budget budget = db.GetBudget(DateTime.Now);
+
+			float totalcost = db.GetTotalCostMonth(DateTime.Now);
 			if (budget != null)
 			{
 				lblmonth.Text = "This Month's Budget: " + budget.BudgetAmount.ToString();
 				lblRemaining.Text = "Remaining Budget: " + (budget.BudgetAmount - totalcost).ToString();
 
-lblTotalCost.Text = "Total Cost This Month: " + totalcost.ToString();
+				lblTotalCost.Text = "Total Cost This Month: " + totalcost.ToString();
 			}
 			else
 			{
 				lblmonth.Text = "This Month's Budget: Not Set";
-				lblRemaining.Text = "Remaining Budget: 0"; 
+				lblRemaining.Text = "Remaining Budget: 0";
 				lblTotalCost.Text = "Total Cost This Month: 0";
 			}
 		}
 
-		partial void UIButton1094_TouchUpInside(UIButton sender)
-		{
-			var acvc = UIApplication.SharedApplication.Windows;
-		//	this.NavigationController.PushViewController(acvc, true);
-			//NavigationController.ShowViewController(new AddCostViewController(), sender);
 
-
-		}
 	}
 }

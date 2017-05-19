@@ -24,7 +24,7 @@ namespace BugetManager
 
 			alert.AddAction(UIAlertAction.Create("Cost Simulator", UIAlertActionStyle.Default, (obj) => SimulatorFunc()));
 
-			alert.AddAction(UIAlertAction.Create("Setup Warning", UIAlertActionStyle.Default, (obj) => Chart()));
+			alert.AddAction(UIAlertAction.Create("View Report", UIAlertActionStyle.Default, (obj) => Chart()));
 
 			alert.AddAction(UIAlertAction.Create("Edit", UIAlertActionStyle.Default, null));
 

@@ -64,31 +64,31 @@ namespace BugetManager
 		public void DisplaySuggestion(List<Cost> costList)
 		{
 			Dictionary<string, float> reportItems = CostTypeCollect(costList);
-			float max;
-			float min;
-			KeyValuePair<string, float> maxType = new KeyValuePair<string, float>();
-			KeyValuePair<string, float> minType = new KeyValuePair<string, float>();
+			float max=0;
+			float min = float.MaxValue;
+			string maxType="";
+
+			string minType = "";
+
 			foreach (KeyValuePair<string, float> a in reportItems)
 			{
-				max = a.Value;
-				min = a.Value;
 				if (a.Value > max)
 				{
 					max = a.Value;
-					maxType = a;
+					maxType = a.Key;
 				}
 
 
 				if (a.Value < min)
 				{
 					min = a.Value;
-					minType = a;
+					minType= a.Key;
 				}
 			}
 
-			textfield1.Text = "Seems you like spend many moeny in " + maxType.Key + ".";
-			textfield2.Text = "Seems you don't always do activities on " + minType.Key + ".";
-			textfield3.Text = "Your most cost is " + maxType.Key + "which you cost" + maxType.Value.ToString() + "." + " You also spend least money on " + minType.Value + "which you cost" + minType.Value.ToString() + ".";
+			textfield1.Text = "Seems you like spend many moeny in " + maxType + ".";
+			textfield2.Text = "Seems you don't always do activities on " + minType + ".";
+			textfield3.Text = "Your most cost is " + maxType + " which you cost " + max.ToString() + " on." + " You also spend least money on " + minType+ " which you cost " + min + " on.";
 
 		}
 		public override void DidReceiveMemoryWarning()

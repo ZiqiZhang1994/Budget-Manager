@@ -1,6 +1,7 @@
 using Foundation;
 using System;
 using UIKit;
+using System.Threading;
 
 namespace BugetManager
 {
@@ -10,22 +11,37 @@ namespace BugetManager
 		{
 		}
 
-
+		Thread tableViewThread;
 		public override void ViewDidLoad()
 		{
 
 			base.ViewDidLoad();
+			CostTable.RowHeight = UITableView.AutomaticDimension;
+			CostTable.EstimatedRowHeight = 40f;
 
 
 
 
-			var costManager = CostManager.Create();
+			tableViewThread=new Thread(new ThreadStart(ConstantlyRefresh));
+			tableViewThread.Start();
+			/*var costManager = CostManager.Create();
 
 			CostTable.Source = new CostResource(costManager.Costs, this);
 
 			CostTable.RowHeight = UITableView.AutomaticDimension;
 			CostTable.EstimatedRowHeight = 40f;
-			CostTable.ReloadData();
+			CostTable.ReloadData();*/
+
+
+
+		}
+		protected override void Dispose(bool disposing)
+		{
+
+			tableViewThread.Abort();
+			base.Dispose(disposing);
+
+
 		}
 
 		public override void DidReceiveMemoryWarning()
@@ -53,6 +69,23 @@ namespace BugetManager
 		public override void ViewDidDisappear(bool animated)
 		{
 			base.ViewDidDisappear(animated);
+		}
+
+
+		private void ConstantlyRefresh()
+		{
+			do
+			{
+				
+				InvokeOnMainThread(
+					delegate{
+						var costManager = CostManager.Create();
+						CostTable.Source = new CostResource(costManager.Costs, this);
+
+						CostTable.ReloadData();
+					});
+				Thread.Sleep(10000);
+			} while (true);
 		}
 	}
 }

@@ -87,14 +87,14 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Services.Client" />
-    <Reference Include="Cross.Pie.iOS">
-      <HintPath>..\Components\Cross.Pie.iOS-1.0\lib\ios-unified\Cross.Pie.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="NGraphics">
       <HintPath>..\packages\NGraphics.0.4.0\lib\Xamarin.iOS10\NGraphics.dll</HintPath>
     </Reference>
     <Reference Include="NGraphics.iOS">
       <HintPath>..\packages\NGraphics.0.4.0\lib\Xamarin.iOS10\NGraphics.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Cross.Pie.iOS">
+      <HintPath>..\..\..\..\Downloads\Cross.Pie.iOS-1.0\lib\ios-unified\Cross.Pie.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

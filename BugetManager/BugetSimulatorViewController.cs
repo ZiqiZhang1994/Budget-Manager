@@ -1,5 +1,6 @@
 using Foundation;
 using System;
+using System.Threading;
 using UIKit;
 using System.IO;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace BugetManager
 		List<Cost> plannedcostlist = new List<Cost>();
 		float totalcost;
 		Budget budget;
+		Mutex mut = new Mutex();
+
 
 		public BugetSimulatorViewController(IntPtr handle) : base(handle)
 		{
@@ -20,7 +23,7 @@ namespace BugetManager
 		}
 		public override void ViewDidLoad()
 		{
-
+			txtValue.Text = "Must Be Didigt";
 			budget = db.GetBudget(DateTime.Now);
 			if (budget != null)
 			{
@@ -41,7 +44,7 @@ namespace BugetManager
 			var budgetManager = BudgetManagementController.Create();
 
 			budgetManager.Budgets.Clear();
- 
+
 			tablePlannedCost.Source = dataSource = new BudgetResource(budgetManager.Budgets, this);
 
 			ReadPlannedCost();
@@ -67,37 +70,47 @@ namespace BugetManager
 
 		partial void UIButton2001_TouchUpInside(UIButton sender)
 		{
+			new Thread(new ThreadStart(ButtonAddFunc)).Start();
+
+
+		}
+		private void ButtonAddFunc()
+		{
+			mut.WaitOne();
 			//Add to Table cell
 
-
-			Cost plannedcost = new Cost(txtname.Text, float.Parse(txtValue.Text), "", DateTime.Now, "");
-			AddNewItem(plannedcost);
-			//update the Label
-			plannedcostlist.Add(plannedcost);
-
-			float totalplannedcost = 0;
-			foreach (Cost c in plannedcostlist)
+			InvokeOnMainThread(delegate
 			{
-				totalplannedcost += c.CostValue;
-			}
-			lblTotalCostPlanned.Text = "Total Cost Planned: " + totalplannedcost.ToString();
+				Cost plannedcost = new Cost(txtname.Text, float.Parse(txtValue.Text), "", DateTime.Now, "");
+				AddNewItem(plannedcost);
+				//update the Label
+				plannedcostlist.Add(plannedcost);
 
-			lblRemaningBudget.Text = "Remaining Budget: " + (budget.BudgetAmount - totalcost - totalplannedcost).ToString();
-
-			if ((budget.BudgetAmount - totalcost - totalplannedcost + plannedcost.CostValue) > 0 && (budget.BudgetAmount - totalcost - totalplannedcost) <= 0)
-			{
-				UIAlertView alert = new UIAlertView()
+				float totalplannedcost = 0;
+				foreach (Cost c in plannedcostlist)
 				{
-					Title = "Warning!!",
-					Message = "You are out of Budget!!!"
-				};
-				alert.AddButton("OK");
-				alert.Show();
+					totalplannedcost += c.CostValue;
+				}
+				lblTotalCostPlanned.Text = "Total Cost Planned: " + totalplannedcost.ToString();
+
+				lblRemaningBudget.Text = "Remaining Budget: " + (budget.BudgetAmount - totalcost - totalplannedcost).ToString();
+
+				if ((budget.BudgetAmount - totalcost - totalplannedcost + plannedcost.CostValue) > 0 && (budget.BudgetAmount - totalcost - totalplannedcost) <= 0)
+				{
+					UIAlertView alert = new UIAlertView()
+					{
+						Title = "Warning!!",
+						Message = "You are out of Budget!!!"
+					};
+					alert.AddButton("OK");
+					alert.Show();
 
 
-			}
+				}
+			});
 
 
+			mut.ReleaseMutex();
 		}
 
 
@@ -152,7 +165,7 @@ namespace BugetManager
 		}
 		public void DeleteRow(NSIndexPath indexPath)
 		{
-			plannedcostlist.RemoveAt(plannedcostlist.Count - indexPath.Row + 1);
+			plannedcostlist.RemoveAt(plannedcostlist.Count - indexPath.Row - 1);
 
 
 			tablePlannedCost.DeleteRows(new[] { indexPath }, UITableViewRowAnimation.Fade);
@@ -160,6 +173,19 @@ namespace BugetManager
 
 
 
+		}
+
+		partial void KeyUpChanged(UITextField sender)
+		{
+			if (txtValue.Text != "")
+			{
+				char last = txtValue.Text[txtValue.Text.Length - 1];
+				if (char.IsDigit(last) == false)
+				{
+					txtValue.Text = txtValue.Text.Remove(txtValue.Text.Length - 1, 1);
+
+				}
+			}
 		}
 	}
 }

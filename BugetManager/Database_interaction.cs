@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BugetManager
 {
@@ -167,6 +168,13 @@ namespace BugetManager
 			{
 				con.Close();
 				con.Dispose();
+			}
+
+
+
+			if (costlist.Count > 0)
+			{
+				costlist = costlist.OrderBy(o => o.CostDate).ToList();
 			}
 
 			return costlist;

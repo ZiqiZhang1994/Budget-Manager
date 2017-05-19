@@ -13,7 +13,7 @@ namespace BugetManager
 
 		{
 
-			if (_instance == null)
+			//if (_instance == null)
 				_instance = new CostManager();
 
 			return _instance;

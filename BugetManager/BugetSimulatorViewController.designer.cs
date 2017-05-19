@@ -50,6 +50,10 @@ namespace BugetManager
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void BtnSave_TouchUpInside (UIKit.UIButton sender);
 
+        [Action ("KeyUpChanged:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void KeyUpChanged (UIKit.UITextField sender);
+
         [Action ("UIButton2001_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton2001_TouchUpInside (UIKit.UIButton sender);

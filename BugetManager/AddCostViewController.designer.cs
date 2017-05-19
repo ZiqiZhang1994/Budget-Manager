@@ -42,6 +42,10 @@ namespace BugetManager
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void DateTimeChanger (UIKit.UIDatePicker sender);
 
+        [Action ("KeyUpChanged:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void KeyUpChanged (UIKit.UITextField sender);
+
         [Action ("UIButton118_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton118_TouchUpInside (UIKit.UIButton sender);
