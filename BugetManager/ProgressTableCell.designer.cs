@@ -16,7 +16,7 @@ namespace BugetManager
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UISlider progressBar { get; set; }
+        UIKit.UIProgressView progressBar { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]

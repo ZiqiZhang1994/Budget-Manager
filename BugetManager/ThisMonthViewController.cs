@@ -12,10 +12,12 @@ namespace BugetManager
 		}
 
 		Thread tableViewThread;
+
 		public override void ViewDidLoad()
 		{
 
 			base.ViewDidLoad();
+			//NavigationController.Title = "Monthly Cost";
 			CostTable.RowHeight = UITableView.AutomaticDimension;
 			CostTable.EstimatedRowHeight = 40f;
 

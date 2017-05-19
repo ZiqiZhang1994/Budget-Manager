@@ -23,7 +23,14 @@ namespace BugetManager
 		}
 		public override void ViewDidLoad()
 		{
-			txtValue.Text = "Must Be Didigt";
+
+
+			UIImage img = UIImage.FromFile("BackGround.png");
+			img = img.Scale(View.Frame.Size);
+			this.View.BackgroundColor = UIColor.FromPatternImage(img);
+
+
+			txtValue.Placeholder = "Must Be Didigt";
 			budget = db.GetBudget(DateTime.Now);
 			if (budget != null)
 			{
@@ -111,7 +118,9 @@ namespace BugetManager
 
 
 			mut.ReleaseMutex();
+
 		}
+
 
 
 

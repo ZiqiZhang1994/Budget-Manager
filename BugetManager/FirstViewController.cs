@@ -26,6 +26,8 @@ namespace BugetManager
 			loadBudgetThread = new Thread(new ThreadStart(InitialisingBudget));
 			loadBudgetThread.Start();
 
+			this.TabBarController.Title = "Budget";
+			this.TabBarItem.Title = "Budget";
 		}
 
 		private void InitialisingBudget()

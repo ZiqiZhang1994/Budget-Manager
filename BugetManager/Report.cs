@@ -13,6 +13,7 @@ namespace BugetManager
 		{
 		}
 				CrossPie Pie { get; set; }
+
 List<Cost> tempList = new List<Cost>();
 		public override void ViewDidLoad()
 		{

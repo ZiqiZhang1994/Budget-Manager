@@ -15,6 +15,7 @@ namespace BugetManager
 
 		public void AddCost(Cost cost)
 		{
+			
 			//addto database using cost
 			string connectionString = "Data Source=148.72.232.166;Integrated Security=False;User ID=q512102932;password=334573gong;Connect Timeout=15;Encrypt=False;Packet Size=4096";
 			SqlConnection con = new SqlConnection(connectionString);

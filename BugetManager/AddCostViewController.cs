@@ -15,7 +15,13 @@ namespace BugetManager
 		{
 			base.ViewDidLoad();
 			datelable.Text = DateTime.Now.Date.ToString();
+
 			lblcost.Placeholder = "Must Be Digit";
+
+			UIImage img = UIImage.FromFile("BackGround.png");
+			img = img.Scale(View.Frame.Size);
+			this.View.BackgroundColor = UIColor.FromPatternImage(img);
+
 
 		}
 

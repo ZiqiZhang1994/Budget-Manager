@@ -27,5 +27,9 @@ namespace BugetManager
 
 			Costs = db.GetCostList(DateTime.Now);
 		}
+
+
+
+
 	}
 }

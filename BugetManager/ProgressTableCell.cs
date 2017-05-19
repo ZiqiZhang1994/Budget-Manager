@@ -19,8 +19,10 @@ namespace BugetManager
 
 			type.Text = report.CostType;
 			total.Text = report.CostValue.ToString();
-			progressBar.MaxValue = budget.BudgetAmount;
-			progressBar.Value = report.CostValue;
+			//progressBar.MaxValue = budget.BudgetAmount;
+			progressBar.Progress = report.CostValue / budget.BudgetAmount;
+
+			//progressBar.Value = report.CostValue;
 		}
 	}
 }

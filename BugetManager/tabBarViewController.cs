@@ -10,6 +10,11 @@ namespace BugetManager
 		{
 		}
 
+		public override void ViewDidLoad()
+		{
+			base.ViewDidLoad();
+
+		}
 		partial void UIBarButtonItem1955_Activated(UIBarButtonItem sender)
 		{
 			var alert = UIAlertController.Create("Budget Menu", "Choose one action you need", UIAlertControllerStyle.ActionSheet);
@@ -29,6 +34,8 @@ namespace BugetManager
 			alert.AddAction(UIAlertAction.Create("Edit", UIAlertActionStyle.Default, null));
 
 			PresentViewController(alert, animated: true, completionHandler: null);
+
+
 		}
 		private void AddCostFunc()
 		{

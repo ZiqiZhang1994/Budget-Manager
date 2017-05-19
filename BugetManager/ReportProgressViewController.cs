@@ -2,6 +2,7 @@ using Foundation;
 using System;
 using UIKit;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace BugetManager
 {
@@ -24,21 +25,45 @@ namespace BugetManager
 
 
 
-			var costManager = CostManager.Create();
+			new Thread(new ThreadStart(LoadToTable)).Start();
 
-			ReportTable.Source = new ReportResource(costManager.Costs, this);
-
-
-
-			ReportTable.RowHeight = UITableView.AutomaticDimension;
-
-			ReportTable.EstimatedRowHeight = 40f;
-
-			ReportTable.ReloadData();
-
-			DisplaySuggestion(costManager.Costs);
 
 		}
+		private void LoadToTable()
+		{
+			InvokeOnMainThread(delegate
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					/*UIAlertView alert = new UIAlertView()
+					{
+						Title = "Loading...",
+						Message = i.ToString() + " time(s) try"
+					};*/
+
+					//alert.Show();
+					var costManager = CostManager.Create();
+
+					ReportTable.Source = new ReportResource(costManager.Costs, this);
+
+
+
+					ReportTable.RowHeight = UITableView.AutomaticDimension;
+
+					ReportTable.EstimatedRowHeight = 40f;
+
+					ReportTable.ReloadData();
+
+					DisplaySuggestion(costManager.Costs);
+					//alert.Dispose();
+				}
+
+			});
+
+
+		}
+
+
 
 
 		public Dictionary<string, float> CostTypeCollect(List<Cost> costList)
@@ -64,9 +89,9 @@ namespace BugetManager
 		public void DisplaySuggestion(List<Cost> costList)
 		{
 			Dictionary<string, float> reportItems = CostTypeCollect(costList);
-			float max=0;
+			float max = 0;
 			float min = float.MaxValue;
-			string maxType="";
+			string maxType = "";
 
 			string minType = "";
 
@@ -82,13 +107,15 @@ namespace BugetManager
 				if (a.Value < min)
 				{
 					min = a.Value;
-					minType= a.Key;
+					minType = a.Key;
 				}
 			}
 
+
+
 			textfield1.Text = "Seems you like spend many moeny in " + maxType + ".";
 			textfield2.Text = "Seems you don't always do activities on " + minType + ".";
-			textfield3.Text = "Your most cost is " + maxType + " which you cost " + max.ToString() + " on." + " You also spend least money on " + minType+ " which you cost " + min + " on.";
+			textfield3.Text = "Your most cost is " + maxType + " which you cost " + max.ToString() + " on." + " You also spend least money on " + minType + " which you cost " + min + " on.";
 
 		}
 		public override void DidReceiveMemoryWarning()
